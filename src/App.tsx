@@ -31,18 +31,36 @@ function App() {
 
   // Check for newly unlocked gifts every minute
   useEffect(() => {
-    const checkInterval = setInterval(() => {
+    const checkGifts = () => {
       const newUnlocked = checkForUnlockedGifts(gifts);
       
       // If we have new unlocked gifts
       if (newUnlocked.length > unlockedGifts.length) {
         setUnlockedGifts(newUnlocked);
         setNextGiftTime(getNextGiftTime(gifts));
-        setShowReloadNotice(true);
+        // setShowReloadNotice(true);
       }
-    }, 60000);
 
-    return () => clearInterval(checkInterval);
+      // Schedule next check based on time until next gift
+      const nextTime = getNextGiftTime(gifts);
+      if (nextTime) {
+        const timeUntilNext = nextTime.getTime() - Date.now();
+        // Check more frequently as we get closer to the next gift
+        const checkInterval = Math.min(
+          Math.max(timeUntilNext / 10, 1000), // At least 1 second, at most 1/10th of the wait time
+          60000 // Cap at 1 minute
+        );
+        setTimeout(checkGifts, checkInterval);
+      } else {
+        // If no more gifts, check every minute
+        setTimeout(checkGifts, 60000);
+      }
+    };
+
+    checkGifts();
+    return () => {
+      // Cleanup will be handled by the timeout
+    };
   }, [unlockedGifts]);
 
   // Show birthday popup on the special day

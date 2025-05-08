@@ -7,7 +7,7 @@ import birthdayAudio from './data/cringe.mp3';
 export const gifts: Gift[] = [
   {
     id: 'birthday-greeting',
-    title: '🎂 Happy Birthday, My Love!',
+    title: '🎂 Happy Birthday, AMMU!',
     content: 'Listen to my special birthday message for you...',
     audio: birthdayAudio,
     type: 'audio',
@@ -16,7 +16,7 @@ export const gifts: Gift[] = [
   {
     id: 'romantic-moment',
     title: 'A Special Memory',
-    content: 'Remember this moment? Every second with you is precious.',
+    content: 'My Vazhithunaiye',
     video: birthdayVideo,
     type: 'video',
     unlockTime: '2025-05-09T06:00:00'
@@ -24,7 +24,7 @@ export const gifts: Gift[] = [
   {
     id: 'message-prompt',
     title: 'Tell Me Anything...',
-    content: 'Say anything to me right now...',
+    content: "If there's anything you'd like to share or ask with me today, I'm all ears and heart! 💖",
     type: 'message',
     hasInput: true,
     inputLabel: 'Your message',
@@ -59,7 +59,7 @@ export const gifts: Gift[] = [
     hasInput: true,
     inputLabel: 'My biggest dream is...',
     submitLabel: 'Make a Wish',
-    unlockTime: '2025-05-11T06:00:00'
+    unlockTime: '2025-05-09T06:00:00'
   },
   {
     id: 'final-surprise',

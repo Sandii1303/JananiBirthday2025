@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Gift, Heart, Mail, Music, Clock, Video } from 'lucide-react';
 import { format } from 'date-fns';
 import { Gift as GiftType } from '../types';
+import emailjs from 'emailjs-com';
 
 interface GiftCardProps {
   gift: GiftType;
@@ -12,6 +13,7 @@ interface GiftCardProps {
 const GiftCard: React.FC<GiftCardProps> = ({ gift, isUnlocked }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [message, setMessage] = useState({});
   
   // Display formatted time
   const formattedTime = format(new Date(gift.unlockTime), 'hh:mm a');
@@ -25,6 +27,38 @@ const GiftCard: React.FC<GiftCardProps> = ({ gift, isUnlocked }) => {
       audio.onended = () => setIsPlaying(false);
     }
   };
+
+  const handleSendMessage = async (title: string, message: string) => {
+    try {
+      var payload: any = {
+        service_id: 'service_uebe08d',
+        template_id: 'template_augozsv',
+        user_id: 'GWkaE5_LO8zmp2e19',
+        accessToken: 'm1E_HgNZuDyfWI3feP-bZ',
+        template_params: {
+          title: title,
+          message: message,
+          name: 'Janani',
+          time: new Date().toLocaleString(),
+        }
+    };
+      const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload),
+    });
+      if (response.ok) {
+        // const data = await response.json();
+        console.log('Email sent successfully:');
+      }
+
+
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  }
   
   return (
     <motion.div
@@ -112,9 +146,11 @@ const GiftCard: React.FC<GiftCardProps> = ({ gift, isUnlocked }) => {
                 <textarea 
                   className="w-full rounded-lg border-pink-200 focus:ring-pink-500 focus:border-pink-500 p-3 text-gray-700"
                   rows={3} 
+                  onChange={(e) => setMessage((prev) => ({ ...prev, [gift.id]: e.target.value }))}
+                  value={message[gift.id] || ''}
                   placeholder={gift.inputLabel || "Write your message here..."}
                 ></textarea>
-                <button className="mt-2 bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                <button className="mt-2 bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-4 rounded-lg transition-colors" onClick={() => handleSendMessage(gift.title, message[gift.id])}>
                   {gift.submitLabel || "Send"}
                 </button>
               </div>
