@@ -11,7 +11,7 @@ export const gifts: Gift[] = [
     content: 'Listen to my special birthday message for you...',
     audio: birthdayAudio,
     type: 'audio',
-    unlockTime: '2025-05-08T23:26:00'
+    unlockTime: '2025-05-09T00:00:00'
   },
   {
     id: 'romantic-moment',
@@ -19,7 +19,7 @@ export const gifts: Gift[] = [
     content: 'Remember this moment? Every second with you is precious.',
     video: birthdayVideo,
     type: 'video',
-    unlockTime: '2025-05-08T23:27:00'
+    unlockTime: '2025-05-09T06:00:00'
   },
   {
     id: 'message-prompt',
@@ -29,7 +29,7 @@ export const gifts: Gift[] = [
     hasInput: true,
     inputLabel: 'Your message',
     submitLabel: 'Send to My Love',
-    unlockTime: '2025-05-08T23:27:00'
+    unlockTime: '2025-05-09T23:27:00'
   },
   {
     id: 'bucket-wish-1',
@@ -39,7 +39,7 @@ export const gifts: Gift[] = [
     hasInput: true,
     inputLabel: 'My biggest wish is...',
     submitLabel: 'Make a Wish',
-    unlockTime: '2025-05-08T23:27:00'
+    unlockTime: '2025-05-09T23:27:00'
   },
   {
     id: 'bucket-wish-2',
@@ -49,7 +49,7 @@ export const gifts: Gift[] = [
     hasInput: true,
     inputLabel: 'I wish for...',
     submitLabel: 'Make a Wish',
-    unlockTime: '2025-05-08T23:27:00'
+    unlockTime: '2025-05-09T23:27:00'
   },
   {
     id: 'bucket-wish-3',
@@ -59,13 +59,13 @@ export const gifts: Gift[] = [
     hasInput: true,
     inputLabel: 'My biggest dream is...',
     submitLabel: 'Make a Wish',
-    unlockTime: '2025-05-08T23:27:00'
+    unlockTime: '2025-05-09T23:27:00'
   },
   {
     id: 'final-surprise',
     title: '🎉 One Last Thing...',
     content: 'The last surprise is waiting for you... ❤',
     type: 'message',
-    unlockTime: '2025-05-08T23:27:00'
+    unlockTime: '2025-05-09T23:27:00'
   }
 ];
