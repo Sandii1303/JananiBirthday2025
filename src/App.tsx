@@ -6,6 +6,7 @@ import Modal from './components/Modal';
 import FloatingElements from './components/FloatingElements';
 import { checkForUnlockedGifts, getNextGiftTime } from './utils/dateUtils';
 import { gifts } from './data/gifts';
+import welcomeImage from "./data/data/janu.jpg"
 
 function App() {
   const [nextGiftTime, setNextGiftTime] = useState<Date | null>(null);
@@ -49,17 +50,15 @@ function App() {
     const checkBirthday = () => {
       const now = new Date();
       // Check if it's her birthday
-      if (now.getFullYear() === 2025 && now.getMonth() === 4 && now.getDate() === 9) {
-        // Show birthday message at midnight
-        if (now.getHours() === 0 && now.getMinutes() === 0) {
+      if (now > new Date('2025-05-09T00:00:00')) {
           setModalContent({
             title: "🎂 Happy Birthday, My Love!",
             message: "Today is all about you. I've prepared some special surprises throughout the day. I love you!",
-            image: "https://images.pexels.com/photos/796606/pexels-photo-796606.jpeg",
+            image: welcomeImage,
           });
           setShowModal(true);
         }
-      }
+      
     };
 
     checkBirthday();
@@ -98,7 +97,9 @@ function App() {
         
         <Timeline gifts={gifts} unlockedGifts={unlockedGifts} />
       </div>
-
+          {
+            showModal && modalContent && 1
+          }
       {showModal && modalContent && (
         <Modal 
           title={modalContent.title}
