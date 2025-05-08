@@ -29,7 +29,7 @@ export const gifts: Gift[] = [
     hasInput: true,
     inputLabel: 'Your message',
     submitLabel: 'Send to My Love',
-    unlockTime: '2025-05-09T23:27:00'
+    unlockTime: '2025-05-09T18:00:00'
   },
   {
     id: 'bucket-wish-1',
@@ -39,7 +39,7 @@ export const gifts: Gift[] = [
     hasInput: true,
     inputLabel: 'My biggest wish is...',
     submitLabel: 'Make a Wish',
-    unlockTime: '2025-05-09T23:27:00'
+    unlockTime: '2025-05-10T06:00:00'
   },
   {
     id: 'bucket-wish-2',
@@ -49,7 +49,7 @@ export const gifts: Gift[] = [
     hasInput: true,
     inputLabel: 'I wish for...',
     submitLabel: 'Make a Wish',
-    unlockTime: '2025-05-09T23:27:00'
+    unlockTime: '2025-05-10T18:00:00'
   },
   {
     id: 'bucket-wish-3',
@@ -59,13 +59,13 @@ export const gifts: Gift[] = [
     hasInput: true,
     inputLabel: 'My biggest dream is...',
     submitLabel: 'Make a Wish',
-    unlockTime: '2025-05-09T23:27:00'
+    unlockTime: '2025-05-11T06:00:00'
   },
   {
     id: 'final-surprise',
     title: '🎉 One Last Thing...',
     content: 'The last surprise is waiting for you... ❤',
     type: 'message',
-    unlockTime: '2025-05-09T23:27:00'
+    unlockTime: '2025-05-11T11:11:00'
   }
 ];
